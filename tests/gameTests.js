@@ -15,7 +15,8 @@ describe('moveRobot', function() {
                  {moves: ['L'], direction: 'S', expectedX: 10, expectedY: 10, expectedDirection: 'E'},
                  {moves: ['R'], direction: 'N', expectedX: 10, expectedY: 10, expectedDirection: 'E'},
                  {moves: ['R'], direction: 'S', expectedX: 10, expectedY: 10, expectedDirection: 'W'},
-                 {moves: ['R','R'], direction: 'S', expectedX: 10, expectedY: 10, expectedDirection: 'S'}] , function() {
+                 {moves: ['R','R'], direction: 'S', expectedX: 10, expectedY: 10, expectedDirection: 'N'},
+                 {moves: ['L','M', 'M', 'M', 'R'], direction: 'S', expectedX: 13, expectedY: 10, expectedDirection: 'S'}] , function() {
       it('should move {direction} facing robot for [{moves}] to ({expectedX}, {expectedY}, {expectedDirection})', function (ctx) {
         var subject = new game();
         var robot = {x: 10, y: 10, direction: ctx.direction};
