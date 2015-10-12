@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "data-driven": "^1.2.1",
     "mocha": "^2.3.3"
   }
 }
