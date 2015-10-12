@@ -1,9 +1,5 @@
 'use strict';
 
-function Game(arena) {
-  this.arena = arena;
-}
-
 var moveForwardActions = {'N': { y: 1 },
                  'S': { y: -1 },
                  'E': { x: 1 },
@@ -25,18 +21,30 @@ var moveCommands = {
   'M': moveForwardActions
 };
 
-function execute(robot, actions){
-  var action = actions[robot.direction];
-  robot.x += action.x || 0;
-  robot.y += action.y || 0;
-  robot.direction = action.direction || robot.direction; 
-}    
+function Game(arena) {
+  this._arena = arena;
+}
 
-Game.prototype.moveRobot = function moveRobot(robot, moves) {
+function isValidMove(newPositon, max) {
+  return newPositon >=0 && newPositon <= max;
+}
+
+Game.prototype._execute = function (robot, actions) {
+  var arena = this._arena;
+  var action = actions[robot.direction];
+  var newX = robot.x + (action.x || 0);
+  var newY = robot.y + (action.y || 0);
+
+  if (isValidMove(newX, arena.x)) robot.x = newX;
+  if (isValidMove(newY, arena.y)) robot.y = newY;
+  robot.direction = action.direction || robot.direction;
+};
+
+Game.prototype.moveRobot = function (robot, moves) {
   moves.forEach(function (move) {
     var command = moveCommands[move];
-    execute(robot, command);
-  });
+    this._execute(robot, command);
+  }.bind(this));
   return robot;
 };
 

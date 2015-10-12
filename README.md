@@ -12,7 +12,7 @@ In order to control a robot, the competition organisers have provided a console 
 
 The first line of input is the upper-right coordinates of the arena, the lower-left coordinates are assumed to be (0, 0).
  
-The rest of the input is information pertaining to the robots that have been deployed. Each robot has two lines of input - the first gives the robot’s position and the second is a series of instructions telling the robot how to move within the arena.
+The rest of the input is information pertaining to the robots that have been deployed. Each robot has two lines of input - the firstDo gives the robot’s position and the second is a series of instructions telling the robot how to move within the arena.
  
 The position is made up of two integers and a letter separated by spaces, corresponding to the x and y coordinates and the robot’s orientation. Each robot will finish moving sequentially, which means that the second robot won’t start to move until the first one has finished moving.
 
@@ -36,4 +36,6 @@ Expected output:
 5 1 E
  
                                           
+## TODO
 
+1. 
