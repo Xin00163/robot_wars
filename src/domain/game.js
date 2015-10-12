@@ -33,10 +33,10 @@ function execute(robot, actions){
 }    
 
 Game.prototype.moveRobot = function moveRobot(robot, moves) {
-  for (var i=0; i<moves.length; i++) {
-    var command = moveCommands[moves[i]]; 
-    execute(robot, command); 
-  }
+  moves.forEach(function (move) {
+    var command = moveCommands[move];
+    execute(robot, command);
+  });
   return robot;
 };
 
