@@ -5,21 +5,19 @@ function Game(arena) {
   this.arena = arena;
 }
 
-//robot - x,y,direction - initial position
-//moves - [L,F,R,F,F] - set of actions to be taken
-//returns updated robot position
+function moveForward(robot) {
+  var actions = {'N': { y: 1 },
+                 'S': { y: -1 },
+                 'E': { x: 1 },
+                 'W': { x: -1 }};
+  var action = actions[robot.direction];
+  robot.x += action.x || 0;
+  robot.y += action.y || 0;
+}
+
 Game.prototype.moveRobot = function moveRobot(robot, moves) {
-  var direction = robot.direction;
   if (moves.length > 0) {
-    if (direction === 'N') {
-      robot.y += 1; 
-    } else if (direction === 'S') {
-      robot.y -= 1; 
-    } else if (direction === 'E') {
-      robot.x += 1; 
-    } else if (direction === 'W') {
-      robot.x -= 1; 
-    }
+    moveForward(robot);
   }
   return robot;
 };
